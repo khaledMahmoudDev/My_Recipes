@@ -1,5 +1,9 @@
-package com.learncbse.myrecipes.data
+package com.learncbse.myrecipes.datamodel
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class RecipeModel(
     val id: String = "",
     val calories: String = "",
@@ -13,4 +17,4 @@ data class RecipeModel(
     val proteins: String = "",
     val thumb: String = "",
     val time: String = ""
-)
+) : Parcelable
