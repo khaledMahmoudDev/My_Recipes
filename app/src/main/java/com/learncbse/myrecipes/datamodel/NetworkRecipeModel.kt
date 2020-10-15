@@ -1,9 +1,6 @@
 package com.learncbse.myrecipes.datamodel
 
 
-data class NetworkRecipeContainer(val recipes: List<NetworkRecipeModel>)
-
-
 data class NetworkRecipeModel(
     val id: String = "",
     val calories: String = "",
@@ -20,8 +17,8 @@ data class NetworkRecipeModel(
 )
 
 
-fun NetworkRecipeContainer.asRecipeModel(): List<RecipeModel> {
-    return recipes.map {
+fun List<NetworkRecipeModel>.asRecipeModel(): List<RecipeModel> {
+    return map {
         RecipeModel(
             id = it.id,
             calories = it.calories,
@@ -40,8 +37,8 @@ fun NetworkRecipeContainer.asRecipeModel(): List<RecipeModel> {
 }
 
 
-fun NetworkRecipeContainer.asDataBaseRecipeModel(): Array<DataBaseRecipeModel> {
-    return recipes.map {
+fun List<NetworkRecipeModel>.asDataBaseRecipeModel(): Array<DataBaseRecipeModel> {
+    return map {
         DataBaseRecipeModel(
             id = it.id,
             calories = it.calories,
