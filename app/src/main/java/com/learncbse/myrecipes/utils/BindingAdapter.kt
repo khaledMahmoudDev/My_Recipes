@@ -17,10 +17,17 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     }
 }
 
-@BindingAdapter("recipeBindListAdapter")
-fun recipesBindListAdapter(recyclerView: RecyclerView, data: List<RecipeModel>?) {
+
+@BindingAdapter("recipeBindListAdapterData", "recipeBindListAdapterFilter")
+fun recipesBindListAdapter(recyclerView: RecyclerView, data: List<RecipeModel>?, filter: String) {
     val adapter = recyclerView.adapter as RecipesListAdapter
-    adapter.submitList(data)
+
+    val result = if (filter.isNotEmpty()) {
+        data?.filter { it.name.toLowerCase().contains(filter.toLowerCase()) }
+    } else {
+        data
+    }
+    adapter.submitList(result)
 
 }
 

@@ -8,6 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="amber500">#ffc107</color>
+    <color name="amberlight">#fff350</color>
+    <color name="amberDark">#c79100</color>
+
     <color name="pink">#E91E63</color>
     <color name="yellow">#FFC107</color>
     <color name="blue">#2196F3</color>
