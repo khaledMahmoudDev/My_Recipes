@@ -10,4 +10,6 @@
     <dimen name="height_45">45dp</dimen>
     <dimen name="text_size20">20sp</dimen>
     <dimen name="width200">200dp</dimen>
+    <dimen name="margin_32">32dp</dimen>
+    <dimen name="textSize24">24sp</dimen>
 </resources>
