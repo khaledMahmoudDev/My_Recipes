@@ -8,6 +8,11 @@ import com.bumptech.glide.Glide
 import com.learncbse.myrecipes.adapter.RecipesListAdapter
 import com.learncbse.myrecipes.datamodel.RecipeModel
 
+
+// main binding adapter
+
+
+//bind images
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
@@ -17,7 +22,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     }
 }
 
-
+//bind recyclerView
 @BindingAdapter(
     "recipeBindListAdapterData",
     "recipeBindListAdapterFilter",
@@ -73,6 +78,8 @@ fun recipesBindListAdapter(
 
 }
 
+
+//bind ratingBar
 @BindingAdapter("difficultyAdapter")
 fun difficultyBindAdapter(ratingBar: RatingBar, data: Int) {
     ratingBar.rating = data.toFloat()

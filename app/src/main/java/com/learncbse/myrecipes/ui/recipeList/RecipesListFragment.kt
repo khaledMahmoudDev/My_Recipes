@@ -18,6 +18,9 @@ import com.learncbse.myrecipes.adapter.RecipesListItemClickListener
 import com.learncbse.myrecipes.databinding.RecipesListFragmentBinding
 import com.learncbse.myrecipes.utils.getNumericValueFromString
 
+
+
+//Main recipe list  fragment
 class RecipesListFragment : Fragment() {
 
     companion object {
@@ -49,6 +52,8 @@ class RecipesListFragment : Fragment() {
 
         })
 
+
+        //textwatcher for searching
         binding.editTextTextSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
@@ -66,24 +71,5 @@ class RecipesListFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        viewModel.recipes.observe(viewLifecycleOwner, Observer {
-            Log.d("recipessss", "${it.size}")
-            if (!it.isNullOrEmpty()) {
-                val x = it.sortedBy { recipeModel ->
-                    var fats = getNumericValueFromString(recipeModel.fats)
-                    fats
-                }
-
-                x.forEach {
-                    val l = it.fats.replace(Regex("[^0-9]"), "")
-                    Log.d("sorted", l)
-                }
-            }
-
-        })
-    }
 
 }

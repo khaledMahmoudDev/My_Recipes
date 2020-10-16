@@ -6,6 +6,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.learncbse.myrecipes.datamodel.DataBaseRecipeModel
 
+
+// main database
 @Database(entities = [DataBaseRecipeModel::class], version = 1, exportSchema = false)
 abstract class RecipesDataBase : RoomDatabase() {
     abstract val recipesDAO: RecipesDAO
@@ -15,7 +17,7 @@ abstract class RecipesDataBase : RoomDatabase() {
         @Volatile
         private var INSTANCE: RecipesDataBase? = null
 
-
+        // return instance of the database as singeltone
         fun getInstance(context: Context): RecipesDataBase {
             synchronized(lock = this)
             {

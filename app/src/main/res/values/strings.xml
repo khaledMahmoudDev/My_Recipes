@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">My Recipes</string>
+    <string name="difficulty">Difficulty :</string>
+    <string name="calories">Calories :</string>
+    <string name="carbos">Carbos :</string>
+    <string name="proteins">Proteins :</string>
+    <string name="fats">Fats :</string>
+    <string name="description">Description :</string>
+    <string name="sort_by">Sort By :</string>
+    <string name="mDefault">Default</string>
+    <string name="fats_asc">Fats ASC</string>
+    <string name="fats_dsc">Fats DSC</string>
+    <string name="calories_asc">calories ASC</string>
+    <string name="calories_dsc">calories DSC</string>
+    <string name="search">search ...</string>
 </resources>

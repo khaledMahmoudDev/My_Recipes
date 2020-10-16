@@ -3,6 +3,8 @@ package com.learncbse.myrecipes.datamodel
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
+
+// default Recipe Model
 @Parcelize
 data class RecipeModel(
     val id: String = "",

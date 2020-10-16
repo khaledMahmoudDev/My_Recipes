@@ -3,7 +3,7 @@ package com.learncbse.myrecipes.datamodel
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
+// data model for database
 @Entity(tableName = "recipes_table")
 data class DataBaseRecipeModel constructor(
     @PrimaryKey
@@ -21,7 +21,7 @@ data class DataBaseRecipeModel constructor(
     val time: String = ""
 )
 
-
+// convert database model to default RecipeModel
 fun List<DataBaseRecipeModel>.asRecipeModel(): List<RecipeModel> {
     return map {
         RecipeModel(

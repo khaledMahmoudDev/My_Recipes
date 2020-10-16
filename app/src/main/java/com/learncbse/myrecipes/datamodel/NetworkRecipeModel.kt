@@ -1,6 +1,6 @@
 package com.learncbse.myrecipes.datamodel
 
-
+// data model for network
 data class NetworkRecipeModel(
     val id: String = "",
     val calories: String = "",
@@ -17,6 +17,7 @@ data class NetworkRecipeModel(
 )
 
 
+// convert Network model to default RecipeModel
 fun List<NetworkRecipeModel>.asRecipeModel(): List<RecipeModel> {
     return map {
         RecipeModel(
@@ -37,6 +38,7 @@ fun List<NetworkRecipeModel>.asRecipeModel(): List<RecipeModel> {
 }
 
 
+// convert Network model to default DatabaseModel
 fun List<NetworkRecipeModel>.asDataBaseRecipeModel(): Array<DataBaseRecipeModel> {
     return map {
         DataBaseRecipeModel(

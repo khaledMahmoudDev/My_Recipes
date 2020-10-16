@@ -20,16 +20,17 @@ class RecipesListViewModel(application: Application) : AndroidViewModel(applicat
 
     }
 
+    // recipes list from databse
     val recipes = recipesRepository.recipes
 
-
+// search query
     val query = MutableLiveData<String>("")
 
     fun setQuery(text: String) {
         query.value = text
     }
 
-
+//sort num
     val sortNum = MutableLiveData<Int>(0)
     fun setSortNum(num: Int) {
         sortNum.value = num

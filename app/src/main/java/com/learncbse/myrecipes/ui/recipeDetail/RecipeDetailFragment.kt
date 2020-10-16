@@ -10,6 +10,8 @@ import androidx.navigation.fragment.navArgs
 import com.learncbse.myrecipes.databinding.RecipeDetailFragmentBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
+
+//details recipe fragment
 class RecipeDetailFragment : Fragment() {
 
     companion object {
@@ -25,6 +27,8 @@ class RecipeDetailFragment : Fragment() {
         val binding = RecipeDetailFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this
 
+
+        //selected recipe from previous screen
         val navArgs: RecipeDetailFragmentArgs by navArgs()
 
         val selectedRecipe = navArgs.selectedRecipe

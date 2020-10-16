@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/curved_background"
-            android:padding="16dp"
+            android:padding="@dimen/margin_16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -45,9 +45,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="Sort By : "
+                    android:text="@string/sort_by"
                     android:textColor="@color/blue"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_16"
                     android:textStyle="bold" />
 
                 <HorizontalScrollView
@@ -66,7 +66,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="@{()->viewModel.setSortNum(0)}"
-                            android:text="Default" />
+                            android:text="@string/mDefault" />
 
                         <com.google.android.material.chip.Chip
                             android:id="@+id/fats_asc_chip"
@@ -74,7 +74,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="@{()->viewModel.setSortNum(1)}"
-                            android:text="Fats ASC" />
+                            android:text="@string/fats_asc" />
 
                         <com.google.android.material.chip.Chip
                             android:id="@+id/fats_dsc_chip"
@@ -82,7 +82,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="@{()->viewModel.setSortNum(2)}"
-                            android:text="Fats DSC" />
+                            android:text="@string/fats_dsc" />
 
                         <com.google.android.material.chip.Chip
                             android:id="@+id/calories_asc_chip"
@@ -90,7 +90,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="@{()->viewModel.setSortNum(3)}"
-                            android:text="calories ASC" />
+                            android:text="@string/calories_asc" />
 
                         <com.google.android.material.chip.Chip
                             android:id="@+id/calories_dsc_chip"
@@ -98,7 +98,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="@{()->viewModel.setSortNum(4)}"
-                            android:text="calories DSC" />
+                            android:text="@string/calories_dsc" />
 
 
                     </com.google.android.material.chip.ChipGroup>
@@ -113,8 +113,8 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginStart="@dimen/margin_24"
+                android:layout_marginEnd="@dimen/margin_24"
                 app:endIconMode="clear_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -126,7 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edit_text_background"
-                    android:hint="search ..."
+                    android:hint="@string/search"
                     android:lines="1" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -142,7 +142,7 @@
             recipeBindListAdapterSort="@{viewModel.sortNum}"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_8"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
