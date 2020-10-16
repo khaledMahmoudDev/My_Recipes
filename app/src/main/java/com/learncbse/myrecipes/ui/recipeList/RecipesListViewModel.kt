@@ -20,38 +20,20 @@ class RecipesListViewModel(application: Application) : AndroidViewModel(applicat
 
     }
 
-
     val recipes = recipesRepository.recipes
-    val query = MutableLiveData<String>("")
 
+
+    val query = MutableLiveData<String>("")
 
     fun setQuery(text: String) {
         query.value = text
     }
 
 
-//    var result: LiveData<List<RecipeModel>> = Transformations.map(query) {
-//
-//        if (it.isNotEmpty()) {
-//            recipes.value!!.filter { recipe ->
-//                recipe.name.toLowerCase() == it.toLowerCase()
-//            }
-//        } else {
-//            recipes.value
-//        }
-//    }
-
-
-//    private fun filter(query: String): List<RecipeModel> {
-//
-//        return if (query.isNotEmpty()) {
-//            recipes.value!!.filter {
-//                it.name.toLowerCase() == query.toLowerCase()
-//            }
-//        } else {
-//            recipesRepository.recipes.value
-//        }
-//    }
+    val sortNum = MutableLiveData<Int>(0)
+    fun setSortNum(num: Int) {
+        sortNum.value = num
+    }
 
 
 }

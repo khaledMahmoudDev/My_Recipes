@@ -18,16 +18,58 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 }
 
 
-@BindingAdapter("recipeBindListAdapterData", "recipeBindListAdapterFilter")
-fun recipesBindListAdapter(recyclerView: RecyclerView, data: List<RecipeModel>?, filter: String) {
+@BindingAdapter(
+    "recipeBindListAdapterData",
+    "recipeBindListAdapterFilter",
+    "recipeBindListAdapterSort"
+)
+fun recipesBindListAdapter(
+    recyclerView: RecyclerView,
+    data: List<RecipeModel>?,
+    filter: String,
+    sortNum: Int
+) {
     val adapter = recyclerView.adapter as RecipesListAdapter
 
-    val result = if (filter.isNotEmpty()) {
+    var result = if (filter.isNotEmpty()) {
         data?.filter { it.name.toLowerCase().contains(filter.toLowerCase()) }
     } else {
         data
     }
-    adapter.submitList(result)
+
+    val sortResult = when (sortNum) {
+        0 -> {
+            result
+        }
+        1 -> {
+            result?.sortedBy { recipeModel ->
+                var fats = getNumericValueFromString(recipeModel.fats)
+                fats
+            }
+        }
+        2 -> {
+            result?.sortedByDescending { recipeModel ->
+                var fats = getNumericValueFromString(recipeModel.fats)
+                fats
+            }
+        }
+        3 -> {
+            result?.sortedBy { recipeModel ->
+                var calories = getNumericValueFromString(recipeModel.calories)
+                calories
+            }
+        }
+        4 -> {
+            result?.sortedByDescending { recipeModel ->
+                var calories = getNumericValueFromString(recipeModel.calories)
+                calories
+            }
+        }
+        else -> {
+            result
+        }
+    }
+    adapter.submitList(sortResult)
 
 }
 

@@ -11,9 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.chip.ChipGroup
+import com.learncbse.myrecipes.R
 import com.learncbse.myrecipes.adapter.RecipesListAdapter
 import com.learncbse.myrecipes.adapter.RecipesListItemClickListener
 import com.learncbse.myrecipes.databinding.RecipesListFragmentBinding
+import com.learncbse.myrecipes.utils.getNumericValueFromString
 
 class RecipesListFragment : Fragment() {
 
@@ -60,9 +63,6 @@ class RecipesListFragment : Fragment() {
             }
         })
 
-
-
-
         return binding.root
     }
 
@@ -71,6 +71,18 @@ class RecipesListFragment : Fragment() {
 
         viewModel.recipes.observe(viewLifecycleOwner, Observer {
             Log.d("recipessss", "${it.size}")
+            if (!it.isNullOrEmpty()) {
+                val x = it.sortedBy { recipeModel ->
+                    var fats = getNumericValueFromString(recipeModel.fats)
+                    fats
+                }
+
+                x.forEach {
+                    val l = it.fats.replace(Regex("[^0-9]"), "")
+                    Log.d("sorted", l)
+                }
+            }
+
         })
     }
 

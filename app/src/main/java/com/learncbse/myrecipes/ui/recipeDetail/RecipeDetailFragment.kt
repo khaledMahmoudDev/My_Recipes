@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.learncbse.myrecipes.databinding.RecipeDetailFragmentBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
 class RecipeDetailFragment : Fragment() {
 
@@ -27,6 +28,7 @@ class RecipeDetailFragment : Fragment() {
         val navArgs: RecipeDetailFragmentArgs by navArgs()
 
         val selectedRecipe = navArgs.selectedRecipe
+
 
         binding.recipe = selectedRecipe
 
