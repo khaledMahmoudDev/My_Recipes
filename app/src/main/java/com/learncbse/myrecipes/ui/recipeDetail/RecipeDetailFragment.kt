@@ -1,12 +1,13 @@
 package com.learncbse.myrecipes.ui.recipeDetail
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.learncbse.myrecipes.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
+import com.learncbse.myrecipes.databinding.RecipeDetailFragmentBinding
 
 class RecipeDetailFragment : Fragment() {
 
@@ -20,7 +21,17 @@ class RecipeDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.recipe_detail_fragment, container, false)
+        val binding = RecipeDetailFragmentBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+
+        val navArgs: RecipeDetailFragmentArgs by navArgs()
+
+        val selectedRecipe = navArgs.selectedRecipe
+
+        binding.recipe = selectedRecipe
+
+        return binding.root
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

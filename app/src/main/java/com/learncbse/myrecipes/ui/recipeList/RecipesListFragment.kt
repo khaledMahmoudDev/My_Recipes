@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.learncbse.myrecipes.adapter.RecipesListAdapter
+import com.learncbse.myrecipes.adapter.RecipesListItemClickListener
 import com.learncbse.myrecipes.databinding.RecipesListFragmentBinding
 
 class RecipesListFragment : Fragment() {
@@ -33,6 +36,14 @@ class RecipesListFragment : Fragment() {
 
         val binding = RecipesListFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+        binding.recipesListRecyclerView.adapter = RecipesListAdapter(RecipesListItemClickListener {
+            val action =
+                RecipesListFragmentDirections.actionRecipesListFragmentToRecipeDetailFragment(it)
+            findNavController().navigate(action)
+
+        })
+
 
 
 

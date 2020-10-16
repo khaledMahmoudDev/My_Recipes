@@ -1,5 +1,6 @@
 package com.learncbse.myrecipes.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.learncbse.myrecipes.database.RecipesDataBase
@@ -20,9 +21,15 @@ class RecipesRepository(private val database: RecipesDataBase) {
 
     suspend fun refreshRecipes() {
         withContext(Dispatchers.IO) {
-            val recipeList = RecipesClient.allRecipes.getRecipes().await()
+            try {
 
-            database.recipesDAO.insertAllRecipes(*recipeList.asDataBaseRecipeModel())
+                val recipeList = RecipesClient.allRecipes.getRecipes().await()
+                database.recipesDAO.insertAllRecipes(*recipeList.asDataBaseRecipeModel())
+            } catch (e: Exception) {
+                Log.e("repository", "${e.message}")
+            }
+
+
         }
     }
 }
